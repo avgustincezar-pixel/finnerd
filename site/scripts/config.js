@@ -1,7 +1,8 @@
 /* Shared constants and mutable game state. */
 window.FINERD_CONFIG = {
-  avatarSrc: "assets/avatar.png",
-  typingSpeedMs: 28,
+  avatarSrc: "assets/avatar-card.png",
+  finerdLogoSrc: "assets/finerd-logo.svg",
+  typingSpeedMs: 18,
   totalLevels: window.FINERD_CONTENT.levels.length
 };
 

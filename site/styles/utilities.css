@@ -5,6 +5,9 @@ body[data-level="3"] .char-img { border-color: var(--blue); }
 body[data-level="4"] .char-img { border-color: var(--violet); }
 body[data-level="5"] .char-img { border-color: var(--yellow); }
 body[data-level="6"] .char-img { border-color: var(--green); }
+body[data-level] .char-img--finerd-logo {
+  border-color: var(--magenta);
+}
 
 .hidden {
   display: none !important;
@@ -44,22 +47,24 @@ body.scrollable {
   }
 
   .char-img,
-  .finerd-terminal {
+  .char-img {
     width: 90px;
     height: 90px;
   }
 
-  .terminal-icon {
-    font-size: 22px;
-  }
-
-  .terminal-text {
-    font-size: 9px;
+  .char-img--finerd-logo {
+    padding: 8px;
   }
 
   .dialogue-box {
-    min-height: 120px;
+    width: min(88vw, 620px);
+    min-height: 104px;
     padding: 16px 18px 14px;
+  }
+
+  .dialogue-container {
+    top: 51%;
+    padding: 0 5%;
   }
 
   .dialogue-text {
@@ -123,7 +128,7 @@ body.scrollable {
   }
 
   .char-img,
-  .finerd-terminal {
+  .char-img--finerd-logo {
     width: 70px;
     height: 70px;
   }

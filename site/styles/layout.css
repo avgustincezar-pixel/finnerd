@@ -87,14 +87,14 @@
 
 .scene {
   position: absolute;
-  top: 10%;
+  top: 14%;
   left: 0;
   right: 0;
-  height: 45%;
+  height: 38%;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 0 8%;
+  padding: 0 9%;
   opacity: 0;
   transition: opacity .6s;
 }
@@ -105,26 +105,65 @@
 
 .dialogue-container {
   position: absolute;
-  bottom: 0;
+  top: 54%;
   left: 0;
   right: 0;
   z-index: 50;
   display: none;
-  padding: 0 5% 5%;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 9%;
+  pointer-events: none;
 }
 
 .dialogue-container.visible {
-  display: block;
+  display: flex;
+}
+
+.dialogue-container.from-nerd {
+  align-items: flex-start;
+}
+
+.dialogue-container.from-finerd {
+  align-items: flex-end;
 }
 
 .dialogue-box {
   position: relative;
-  min-height: 140px;
-  padding: 24px 28px 20px;
-  background: rgba(23,28,29,0.94);
-  border: 6px solid rgba(255,255,255,0.08);
-  box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+  width: min(680px, 76vw);
+  min-height: 112px;
+  padding: 22px 26px 20px;
+  background: rgba(23,28,29,0.96);
+  border: 4px solid var(--cyan);
+  border-radius: 28px 28px 28px 8px;
+  box-shadow: 8px 10px 0 rgba(0,0,0,0.32), 0 0 26px rgba(98,232,255,0.14);
   backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+
+.dialogue-box--finerd {
+  border-color: var(--magenta);
+  border-radius: 28px 28px 8px 28px;
+  box-shadow: 8px 10px 0 rgba(0,0,0,0.32), 0 0 26px rgba(240,90,192,0.16);
+}
+
+.dialogue-box::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 36px;
+  width: 28px;
+  height: 28px;
+  background: rgba(23,28,29,0.96);
+  border-right: 4px solid var(--cyan);
+  border-bottom: 4px solid var(--cyan);
+  transform: rotate(45deg);
+}
+
+.dialogue-box--finerd::after {
+  right: 36px;
+  left: auto;
+  border-color: var(--magenta);
 }
 
 .dialogue-speaker {
@@ -132,4 +171,9 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
+}
+
+.dialogue-container.from-finerd .dialogue-speaker {
+  flex-direction: row-reverse;
+  text-align: right;
 }

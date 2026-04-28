@@ -81,10 +81,15 @@ function showDialogue() {
 
   const isNerd = dialogue.speaker === "market-nerd";
 
-  els.speakerName.textContent = isNerd ? "Marketing Nerd" : "finerd System";
+  els.dialogueContainer.classList.toggle("from-nerd", isNerd);
+  els.dialogueContainer.classList.toggle("from-finerd", !isNerd);
+  els.dialogueBox.classList.toggle("dialogue-box--nerd", isNerd);
+  els.dialogueBox.classList.toggle("dialogue-box--finerd", !isNerd);
+
+  els.speakerName.textContent = isNerd ? "Діма Шевченко / Marketing Nerd" : "finerd";
   els.speakerName.className = `speaker-name${isNerd ? "" : " system"}`;
-  els.speakerAvatar.src = isNerd ? config.avatarSrc : "";
-  els.speakerAvatar.style.display = isNerd ? "block" : "none";
+  els.speakerAvatar.src = isNerd ? config.avatarSrc : config.finerdLogoSrc;
+  els.speakerAvatar.style.display = "block";
 
   els.charLeft.classList.toggle("speaking", isNerd);
   els.charLeft.classList.toggle("idle", !isNerd);
