@@ -97,6 +97,7 @@ function showDialogue() {
   els.charRight.classList.toggle("idle", isNerd);
 
   typeText(dialogue.text, els.dialogueText);
+  els.btnNextDialogue.style.display = "inline-flex";
 }
 
 function onDialoguesComplete() {
@@ -112,6 +113,7 @@ function onDialoguesComplete() {
   }
 
   els.dialogueIndicator.style.opacity = "0";
+  els.btnNextDialogue.style.display = "none";
 }
 
 function showArtifactButtons(artifacts) {

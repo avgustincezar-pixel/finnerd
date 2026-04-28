@@ -21,6 +21,7 @@ window.FINERD_DOM = {
   actionButtons: $("#actionButtons"),
   btnPrimary: $("#btnPrimary"),
   btnSecondary: $("#btnSecondary"),
+  btnNextDialogue: $("#btnNextDialogue"),
   artifactOverlay: $("#artifactOverlay"),
   artifactCard: $("#artifactCard"),
   artifactTitle: $("#artifactTitle"),

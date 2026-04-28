@@ -4,11 +4,16 @@ const appState = window.FINERD_STATE;
 const engine = window.FINERD_ENGINE;
 
 dom.btnStart.addEventListener("click", engine.startGame);
+dom.btnNextDialogue.addEventListener("click", (event) => {
+  event.stopPropagation();
+  engine.advance();
+});
 
 dom.gameViewport.addEventListener("click", (event) => {
   if (!appState.started || appState.gameComplete) return;
 
   const ignoredClick = event.target.closest(".action-buttons") ||
+    event.target.closest(".dialogue-next") ||
     event.target.closest(".btn-artifact") ||
     event.target.closest(".artifact-overlay") ||
     event.target.closest(".final-cta");

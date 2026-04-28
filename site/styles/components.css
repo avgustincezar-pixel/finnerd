@@ -8,10 +8,23 @@
 }
 
 .hud-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   font-family: var(--font-display);
   font-size: 9px;
   color: var(--cyan);
   letter-spacing: 1px;
+}
+
+.hud-name-main {
+  color: var(--text-main);
+  font-size: 8px;
+}
+
+.hud-name-role {
+  color: var(--cyan);
+  font-size: 9px;
 }
 
 .progress-bar {
@@ -144,11 +157,24 @@
 
 .dialogue-text {
   min-height: 50px;
+  margin-bottom: 18px;
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.7;
   color: var(--text-main);
   white-space: pre-wrap;
+}
+
+.dialogue-next {
+  position: relative;
+  z-index: 2;
+  padding: 12px 18px;
+  font-size: 8px;
+  box-shadow: 5px 6px 0 rgba(0,0,0,.35);
+}
+
+.dialogue-container.from-finerd .dialogue-next {
+  margin-left: auto;
 }
 
 .dialogue-indicator {
