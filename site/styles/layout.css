@@ -126,6 +126,7 @@
 
 .dialogue-container.from-finerd {
   align-items: flex-end;
+  padding-right: 13%;
 }
 
 .dialogue-box {
@@ -151,7 +152,7 @@
   content: "";
   position: absolute;
   bottom: -18px;
-  left: 36px;
+  left: 70px;
   width: 28px;
   height: 28px;
   background: rgba(23,28,29,0.96);
@@ -161,7 +162,7 @@
 }
 
 .dialogue-box--finerd::after {
-  right: 36px;
+  right: 280px;
   left: auto;
   border-color: var(--magenta);
 }
