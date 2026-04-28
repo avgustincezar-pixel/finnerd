@@ -1,0 +1,26 @@
+/* Design tokens: colors, fonts, gradients, and reusable effects. */
+:root {
+  --bg-black: #0D1112;
+  --bg-panel: #171C1D;
+  --bg-panel-soft: #222829;
+  --bg-grid-dark: #10191C;
+  --border-dark: #343B3B;
+  --text-main: #F2F2EA;
+  --text-muted: #A9B0AE;
+  --text-dim: #6E7775;
+  --cyan: #62E8FF;
+  --blue: #1397E8;
+  --violet: #A56CFF;
+  --purple: #8B2BBA;
+  --magenta: #F05AC0;
+  --green: #20C878;
+  --yellow: #D9B51B;
+  --orange: #F39A22;
+  --red-brown: #7A2F2C;
+  --font-display: "Press Start 2P", monospace;
+  --font-body: "JetBrains Mono", "Press Start 2P", monospace;
+  --grad-cta: linear-gradient(90deg, #31E7F4 0%, #6FA8FF 48%, #D84BDF 100%);
+  --grad-hero: linear-gradient(90deg, #9F5BFF 0%, #C46CFF 45%, #78B8FF 100%);
+  --grad-wrong: linear-gradient(90deg, #D98A22 0%, #7A2F2C 100%);
+  --shadow-pixel: 8px 10px 0 rgba(0,0,0,.35);
+}

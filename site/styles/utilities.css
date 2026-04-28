@@ -1,0 +1,113 @@
+/* State modifiers, responsive rules, and one-off helpers. */
+body[data-level="1"] .char-img { border-color: var(--violet); }
+body[data-level="2"] .char-img { border-color: var(--cyan); }
+body[data-level="3"] .char-img { border-color: var(--blue); }
+body[data-level="4"] .char-img { border-color: var(--violet); }
+body[data-level="5"] .char-img { border-color: var(--yellow); }
+body[data-level="6"] .char-img { border-color: var(--green); }
+
+.hidden {
+  display: none !important;
+}
+
+body.scrollable {
+  overflow-y: auto;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .scene {
+    top: 8%;
+    padding: 0 4%;
+  }
+
+  .char-img,
+  .finerd-terminal {
+    width: 90px;
+    height: 90px;
+  }
+
+  .terminal-icon {
+    font-size: 22px;
+  }
+
+  .terminal-text {
+    font-size: 9px;
+  }
+
+  .dialogue-box {
+    min-height: 120px;
+    padding: 16px 18px 14px;
+  }
+
+  .dialogue-text {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .speaker-name {
+    font-size: 8px;
+  }
+
+  .speaker-avatar {
+    width: 24px;
+    height: 24px;
+  }
+
+  .action-buttons {
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 20px;
+    font-size: 9px;
+  }
+
+  .hud-name {
+    display: none;
+  }
+
+  .hud-status {
+    font-size: 7px;
+  }
+
+  .artifact-grid {
+    width: min(92vw, 520px);
+  }
+
+  .final-profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .final-avatar {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .char-img,
+  .finerd-terminal {
+    width: 70px;
+    height: 70px;
+  }
+
+  .char-label {
+    font-size: 6px;
+  }
+
+  .dialogue-text {
+    font-size: 11px;
+  }
+
+  .start-glitch-text {
+    letter-spacing: 2px;
+  }
+
+  .final-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

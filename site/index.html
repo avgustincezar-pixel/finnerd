@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Nerd × finerd — CV Quest</title>
+  <meta name="description" content="AI-native маркетинговий нерд шукає finerd. Proof-of-work замість мотиваційного листа." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230D1112'/%3E%3Ctext x='9' y='42' font-size='34' fill='%2362E8FF'%3EF%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ══════════ SCANLINE OVERLAY ══════════ -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════ PROGRESS HUD ══════════ -->
+  <header id="hud">
+    <div class="hud-left">
+      <img src="assets/avatar.png" alt="Market Nerd avatar" class="hud-avatar" />
+      <span class="hud-name">MARKET NERD</span>
+    </div>
+    <div class="hud-center">
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-block active" data-level="1"></div>
+        <div class="progress-block" data-level="2"></div>
+        <div class="progress-block" data-level="3"></div>
+        <div class="progress-block" data-level="4"></div>
+        <div class="progress-block" data-level="5"></div>
+        <div class="progress-block" data-level="6"></div>
+      </div>
+      <span class="hud-level-label" id="hudLevelLabel">РІВЕНЬ 1 / 6</span>
+    </div>
+    <div class="hud-right">
+      <span class="hud-status" id="hudStatus">THE ENCOUNTER</span>
+    </div>
+  </header>
+
+  <!-- ══════════ MAIN GAME VIEWPORT ══════════ -->
+  <main id="gameViewport">
+    <!-- ---- PERSPECTIVE GRID BG ---- -->
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <!-- ---- SCENE AREA ---- -->
+    <section class="scene" id="scene">
+      <!-- Characters will be positioned here -->
+      <div class="character character-left" id="charLeft">
+        <img src="assets/avatar.png" alt="Market Nerd" class="char-img" />
+        <span class="char-label">MARKET NERD</span>
+      </div>
+      <div class="character character-right" id="charRight">
+        <div class="finerd-terminal">
+          <span class="terminal-icon">⌐◨-◨</span>
+          <span class="terminal-text">finerd</span>
+        </div>
+        <span class="char-label char-label--system">SYSTEM</span>
+      </div>
+
+      <!-- Level-specific scene decorations -->
+      <div class="scene-decoration" id="sceneDecoration"></div>
+    </section>
+
+    <!-- ---- DIALOGUE BOX ---- -->
+    <div class="dialogue-container" id="dialogueContainer">
+      <div class="dialogue-box" id="dialogueBox">
+        <div class="dialogue-speaker" id="dialogueSpeaker">
+          <img src="assets/avatar.png" alt="" class="speaker-avatar" id="speakerAvatar" />
+          <span class="speaker-name" id="speakerName">Market Nerd</span>
+        </div>
+        <p class="dialogue-text" id="dialogueText"></p>
+        <div class="dialogue-indicator" id="dialogueIndicator">
+          <span class="indicator-arrow">▼</span>
+        </div>
+      </div>
+
+      <!-- Action buttons (shown between levels) -->
+      <div class="action-buttons" id="actionButtons" style="display:none;">
+        <button class="btn-primary" id="btnPrimary">LOAD PROFILE</button>
+        <button class="btn-secondary" id="btnSecondary" style="display:none;"></button>
+      </div>
+    </div>
+
+    <!-- ---- START SCREEN ---- -->
+    <div class="start-screen" id="startScreen">
+      <div class="start-content">
+        <div class="start-glitch-text">MARKET NERD</div>
+        <div class="start-subtitle">× finerd</div>
+        <h1 class="start-headline">CV, ДЕ ВСЕ<br/><span class="gradient-text">СХОДИТЬСЯ</span></h1>
+        <p class="start-tagline">AI-native маркетинговий нерд шукає finerd.<br/>Proof-of-work замість мотиваційного листа.</p>
+        <button class="btn-start" id="btnStart">
+          <span class="btn-start-text">PRESS START</span>
+          <span class="btn-start-hint">SPACE / CLICK</span>
+        </button>
+        <div class="start-sparkles" aria-hidden="true">
+          <span class="sparkle s1">✦</span>
+          <span class="sparkle s2">✦</span>
+          <span class="sparkle s3">+</span>
+          <span class="sparkle s4">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- ARTIFACT POPUP ---- -->
+    <div class="artifact-overlay" id="artifactOverlay" style="display:none;">
+      <div class="artifact-card" id="artifactCard">
+        <button class="artifact-close" id="artifactClose">✕</button>
+        <h3 class="artifact-title" id="artifactTitle"></h3>
+        <div class="artifact-body" id="artifactBody"></div>
+      </div>
+    </div>
+
+    <!-- ---- FINAL CTA SECTION ---- -->
+    <div class="final-cta" id="finalCta" style="display:none;">
+      <div class="final-cta-content">
+        <div class="level-complete-badge">
+          <span class="badge-icon">★</span>
+          <span class="badge-text">QUEST COMPLETE</span>
+        </div>
+        <div class="final-profile-card">
+          <img src="assets/avatar-card.png" alt="Market Nerd" class="final-avatar" />
+          <div class="final-stats">
+            <div class="stat-row"><span class="stat-label">CLASS:</span><span class="stat-value">AI-NATIVE MARKETER</span></div>
+            <div class="stat-row"><span class="stat-label">LVL:</span><span class="stat-value">JUNIOR+</span></div>
+            <div class="stat-row"><span class="stat-label">XP:</span><span class="stat-value">3 РОКИ / 25+ БІЗНЕСІВ</span></div>
+            <div class="stat-row"><span class="stat-label">STATUS:</span><span class="stat-value status-verified">FINERD FIT ✓</span></div>
+          </div>
+        </div>
+        <h2 class="final-headline">ЯКЩО БАЛАНС<br/><span class="gradient-text">ЗІЙШОВСЯ</span></h2>
+        <p class="final-sub">Готовий пройти тестове, показати повний CV або розібрати вашу реальну маркетингову задачу на співбесіді.</p>
+        <div class="final-buttons">
+          <a href="mailto:your@email.com" class="btn-primary btn-final" id="btnInterview">
+            <span class="btn-icon">🎮</span> START CO-OP MODE
+          </a>
+          <a href="#" class="btn-secondary btn-final" id="btnTest">
+            <span class="btn-icon">📋</span> ASSIGN TEST TASK
+          </a>
+        </div>
+        <div class="final-contacts">
+          <a href="mailto:your@email.com" class="contact-link">📧 EMAIL</a>
+          <a href="https://t.me/" class="contact-link">💬 TELEGRAM</a>
+          <a href="https://linkedin.com/" class="contact-link">💼 LINKEDIN</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/content.js"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/dom.js"></script>
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/engine.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

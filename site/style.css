@@ -1,0 +1,17 @@
+/* FINERD RPG CV — CSS MAP
+
+   Edit guide:
+   - styles/tokens.css: colors, fonts, gradients, shadows
+   - styles/base.css: reset, body, shared defaults
+   - styles/layout.css: HUD, viewport, scene, dialogue layout
+   - styles/components.css: buttons, characters, artifacts, reusable UI
+   - styles/screens.css: start screen and final CTA
+   - styles/utilities.css: level accents, responsive rules, helpers
+*/
+
+@import url("styles/tokens.css");
+@import url("styles/base.css");
+@import url("styles/layout.css");
+@import url("styles/components.css");
+@import url("styles/screens.css");
+@import url("styles/utilities.css");

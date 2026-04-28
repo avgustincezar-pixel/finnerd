@@ -1,0 +1,135 @@
+/* Page-level structure: overlays, HUD, viewport, scene, and dialogue. */
+.scanline-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  mix-blend-mode: screen;
+}
+
+#hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: rgba(13,17,18,0.92);
+  border-bottom: 3px solid var(--border-dark);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity .5s, transform .5s;
+}
+
+#hud.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hud-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+#gameViewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(144,60,255,0.14), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(42,190,255,0.10), transparent 40%),
+    var(--bg-black);
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(98,232,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(98,232,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(35deg);
+  transform-origin: center 70%;
+  opacity: 0.4;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%);
+}
+
+.scene {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  height: 45%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 8%;
+  opacity: 0;
+  transition: opacity .6s;
+}
+
+.scene.visible {
+  opacity: 1;
+}
+
+.dialogue-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: none;
+  padding: 0 5% 5%;
+}
+
+.dialogue-container.visible {
+  display: block;
+}
+
+.dialogue-box {
+  position: relative;
+  min-height: 140px;
+  padding: 24px 28px 20px;
+  background: rgba(23,28,29,0.94);
+  border: 6px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+}
+
+.dialogue-speaker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
