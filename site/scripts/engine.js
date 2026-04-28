@@ -81,7 +81,7 @@ function showDialogue() {
 
   const isNerd = dialogue.speaker === "market-nerd";
 
-  els.speakerName.textContent = isNerd ? "Market Nerd" : "finerd System";
+  els.speakerName.textContent = isNerd ? "Marketing Nerd" : "finerd System";
   els.speakerName.className = `speaker-name${isNerd ? "" : " system"}`;
   els.speakerAvatar.src = isNerd ? config.avatarSrc : "";
   els.speakerAvatar.style.display = isNerd ? "block" : "none";

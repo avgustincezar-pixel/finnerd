@@ -16,6 +16,28 @@ body.scrollable {
 }
 
 @media (max-width: 768px) {
+  .start-content {
+    width: min(560px, 94vw);
+  }
+
+  .start-characters {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .start-character-card {
+    width: min(34vw, 132px);
+  }
+
+  .start-character-img {
+    border-width: 3px;
+    border-radius: 14px;
+  }
+
+  .start-character-versus {
+    transform: translateY(-18px);
+  }
+
   .scene {
     top: 8%;
     padding: 0 4%;
@@ -88,6 +110,18 @@ body.scrollable {
 }
 
 @media (max-width: 480px) {
+  .start-glitch-text {
+    white-space: normal;
+  }
+
+  .start-character-role {
+    display: none;
+  }
+
+  .start-character-name {
+    font-size: 7px;
+  }
+
   .char-img,
   .finerd-terminal {
     width: 70px;
@@ -100,10 +134,6 @@ body.scrollable {
 
   .dialogue-text {
     font-size: 11px;
-  }
-
-  .start-glitch-text {
-    letter-spacing: 2px;
   }
 
   .final-buttons {
